@@ -62,11 +62,11 @@ int main(int argc, char const *argv[])
         printf("Parent Process\n");
         
         char str[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
-        int n = 10;
+        int n = 0;
         int flag;
         int i;
 
-        for(i=9; i<n; i--)
+        for(i=9; i>=n; i--)
         {
             if (a[i] != key)
             {
