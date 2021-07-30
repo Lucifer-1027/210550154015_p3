@@ -17,53 +17,56 @@ int main(int argc, char const *argv[])
     char key;
 
     id1 = fork();
+
+    if (id1 == 0)
+    {
+        printf("Child Process 1 \n");
+        
+        char str[100];
+        int i;
+        int n;
+
+        printf("Enter the string:");
+        gets(str);
+        printf("Enter character to be searched:");
+        key=getchar();
+
+        for(i=0; i<str[n]; i++)
+        {
+            if (str[i] == key)
+            {
+                printf("Key '%c' is present in the string and found at location: %d\n", key, i);
+            }
+
+            else
+            {
+                printf("Key is not present in the string\n");
+            }
+
+        }
+    }
+
+    else
+    {
+        printf("Parent Process");
+    }
+    
     id2 = fork();
 
-    if (id1 > 0)
+    if (id2 == 0)
     {
-        printf("Parent Process\n");
+        printf("Child Process 2 \n");
         
         char str[100];
         int i;
+        int n;
 
         printf("Enter the string:");
         gets(str);
         printf("Enter character to be searched:");
         key=getchar();
 
-        for(i=0; str[i]; i++)
-        {
-            if (str[i] == key)
-            {
-                printf("Key '%c' is present in the string and found at location: %d\n", key, i);
-            }
-
-            else
-            {
-                printf("Key is not present in the string\n");
-            }
-
-        }
-    }
-    
-    else
-    {
-        printf("Child Process");
-    }
-    
-    if (id2 > 0)
-    {
-        printf("Parent Process\n");
-        
-        char str[100];
-        int i;
-
-        printf("Enter the string:");
-        gets(str);
-        printf("Enter character to be searched:");
-        key=getchar();
-
-        for(i=0; str[i]; i++)
+        for(i=999; i>str[n]; i--)
         {
             if (str[i] == key)
             {
@@ -80,7 +83,7 @@ int main(int argc, char const *argv[])
 
     else
     {
-        printf("Child Process");
+        printf("Parent Process");
     }
 
     return 0;
